@@ -1,0 +1,50 @@
+---
+title: "Assignment 1 - Data Acquisition and Management, Fall 2020"
+author: "Arushi Arora"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library (readr)
+
+urlfile="https://raw.githubusercontent.com/fivethirtyeight/covid-19-polls/9e9f5bbb6dd62a5d35e886488c5771bfe9c80821/covid_approval_polls.csv"
+
+rawdata<-read_csv(url(urlfile))
+
+polls_data <- rawdata[,c("start_date","end_date","pollster","sponsor","sample_size","population","text","approve","disapprove") ]
+
+
+
+```
+
+## How Americans View The Coronavirus Crisis And Trump's Response
+Link: https://projects.fivethirtyeight.com/coronavirus-polls/
+
+## Overview
+
+
+The article reports on data collected from polls on whether Americans approve 
+          or disapprove of Trumps response to the pandemic. The approval rates to his 
+          response were stratified by party affliation.
+          The article has also reported numbers on the level of concern in Americans 
+          regarding COVID-19 and its impact on the economy.
+
+
+## Findings
+Based on an average of different polls, it is clear that
+about two-thirds disapprove of Trumps response to the pandemic while thirty-eight percent approved of his response. On a party basis, most approvals came from Republicans (79.3%) while only 8.5% of Democrats approved of his response.
+
+
+## Dataset
+covid_approval_polls.csv
+
+```{r Polls_data}
+polls_data
+```
+
+## Recommendations
+We can also look at whether the differences between approval and disapproval
+by party are significant or not (not reported in the article). It will give a sense of whether the differences are by chance or if its just noise. It would be interesting to note which income groups support/approve Trumps response versus those that dont and whether the level of concerns about the infection are lower in the same income group that report low concerns?
